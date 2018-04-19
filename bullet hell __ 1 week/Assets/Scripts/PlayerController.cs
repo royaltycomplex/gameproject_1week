@@ -11,14 +11,31 @@ public class Boundary
 public class PlayerController : MonoBehaviour {
 
 	private Rigidbody rb;
+	private float nextFire;
 
 	public float speed;
 	public float tilt;
 	public Boundary boundary;
+	public float fireRate;
+
+	public GameObject bullet;
+	public Transform[] bulletSpawns;
 
 	void Start()
 	{
 		rb = GetComponent<Rigidbody>();
+	}
+
+	void Update()
+	{
+		if (Input.GetButton("Fire1") && Time.time > nextFire)
+		{
+			nextFire = Time.time + fireRate;
+			foreach (Transform bulletSpawn in bulletSpawns)
+			{
+				Instantiate(bullet, bulletSpawn.position, bulletSpawn.rotation);
+			}
+		}
 	}
 
 	void FixedUpdate()

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Mover : MonoBehaviour
+public class PlayerBullet : MonoBehaviour
 {
 	private Rigidbody rb;
 
@@ -17,6 +17,7 @@ public class Mover : MonoBehaviour
 	void FixedUpdate ()
 	{
 		transform.Rotate(0.0f, rotate * Time.deltaTime, 0.0f);
-		rb.position += -transform.forward * Time.deltaTime * speed;
+		rb.position += transform.forward * Time.deltaTime * speed;
 	}
 }
+
