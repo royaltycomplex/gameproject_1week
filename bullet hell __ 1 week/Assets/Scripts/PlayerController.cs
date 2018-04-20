@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour {
 
 	private Rigidbody rb;
 	private float nextFire;
+	private GameObject bulletObject;
 
 	public float speed;
 	public float tilt;
@@ -24,6 +25,7 @@ public class PlayerController : MonoBehaviour {
 	void Start()
 	{
 		rb = GetComponent<Rigidbody>();
+		bulletObject = GameObject.Find("PlayerBullets");
 	}
 
 	void Update()
@@ -33,7 +35,7 @@ public class PlayerController : MonoBehaviour {
 			nextFire = Time.time + fireRate;
 			foreach (Transform bulletSpawn in bulletSpawns)
 			{
-				Instantiate(bullet, bulletSpawn.position, bulletSpawn.rotation);
+				Instantiate(bullet, bulletSpawn.position, bulletSpawn.rotation, bulletObject.transform);
 			}
 		}
 	}
@@ -53,6 +55,6 @@ public class PlayerController : MonoBehaviour {
 			Mathf.Clamp(rb.position.z, boundary.zMin, boundary.zMax)
 		);
 
-		rb.rotation = Quaternion.Euler (0.0f, 180.0f, rb.velocity.x * tilt);
+		rb.rotation = Quaternion.Euler (0.0f, 0.0f, rb.velocity.x * -tilt);
 	}
 }

@@ -12,6 +12,8 @@ public class EnemyPatternA : MonoBehaviour {
 	private int spawnCount;
 	private int spawnMax;
 
+	private GameObject enemyBullets;
+
 	private Quaternion defaultRotation;
 //	private int cooldown;
 
@@ -23,7 +25,10 @@ public class EnemyPatternA : MonoBehaviour {
 		spawnCount = 0;
 		spawnMax = 3;
 
+		transform.Rotate(0.0f, -20.0f, 0.0f);
 		defaultRotation = transform.rotation;
+
+		enemyBullets = GameObject.Find("EnemyBullets");
 //		cooldown = 0;
 	}
 	
@@ -50,7 +55,7 @@ public class EnemyPatternA : MonoBehaviour {
 					{
 						bullet.GetComponent<Mover>().speed = 9;
 					}
-					Instantiate(bullet, transform.position, transform.rotation);
+					Instantiate(bullet, transform.position, transform.rotation, enemyBullets.transform);
 					transform.Rotate(0.0f, 10.0f, 0.0f);
 					i++;
 				}

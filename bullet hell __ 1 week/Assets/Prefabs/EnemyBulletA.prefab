@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33599848906182544}
   - component: {fileID: 23046753465449066}
   - component: {fileID: 122944928151531436}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: VFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,13 +40,13 @@ GameObject:
   - component: {fileID: 54208319699567708}
   - component: {fileID: 135607603164538084}
   - component: {fileID: 114313855775224666}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: EnemyBulletA
   m_TagString: Light Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4763433155918860
 Transform:
   m_ObjectHideFlags: 1
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73f2527e6eafa9942a1827c2981b1730, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7
+  speed: 9
   rotate: 0
 --- !u!122 &122944928151531436
 Halo:

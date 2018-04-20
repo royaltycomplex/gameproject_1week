@@ -1,13 +1,16 @@
 fileFormatVersion: 2
 guid: cf5dfb31bf37f6f41b655d6c7c73c3a3
-timeCreated: 1524104911
+timeCreated: 1524193901
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: texture_checker
+    2100000: texture_playerShipbody
+    2100002: texture_playerShipwings
+    2100004: lambert1
+    2100006: blinn2
     2300000: //RootNode
     3300000: //RootNode
     4300000: model_playerShip

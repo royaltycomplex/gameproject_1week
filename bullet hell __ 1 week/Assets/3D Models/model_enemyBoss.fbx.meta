@@ -33,8 +33,11 @@ ModelImporter:
     400024: transform5
     2100000: texture_enemyBoss
     2300000: model_enemyBoss1
+    2300002: //RootNode
     3300000: model_enemyBoss1
+    3300002: //RootNode
     4300000: model_enemyBoss1
+    4300002: model_enemyBoss
     9500000: //RootNode
   externalObjects: {}
   materials:

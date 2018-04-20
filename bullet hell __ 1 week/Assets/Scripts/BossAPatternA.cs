@@ -13,6 +13,8 @@ public class BossAPatternA : MonoBehaviour {
 	private int spawnMax;
 	private int cooldown;
 
+	private GameObject enemyBullets;
+
 	// Use this for initialization
 	void Start () {
 		waitToSpawn = 0;
@@ -21,6 +23,8 @@ public class BossAPatternA : MonoBehaviour {
 		spawnCount = 0;
 		spawnMax = 2;
 		cooldown = 0;
+
+		enemyBullets = GameObject.Find("EnemyBullets");
 	}
 	
 	// Update is called once per frame
@@ -42,7 +46,7 @@ public class BossAPatternA : MonoBehaviour {
 					{
 						bullet.GetComponent<Mover>().speed = 8;
 					}
-					Instantiate(bullet, transform.position, transform.rotation);
+					Instantiate(bullet, transform.position, transform.rotation, enemyBullets.transform);
 					transform.Rotate(0.0f, 10.0f, 0.0f);
 					i++;
 				}

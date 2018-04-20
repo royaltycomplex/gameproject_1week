@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33183656372431042}
   - component: {fileID: 23876926458013782}
   - component: {fileID: 122821381564558096}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: VFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,8 +39,8 @@ GameObject:
   - component: {fileID: 4441924432733072}
   - component: {fileID: 54218484829052850}
   - component: {fileID: 135052660166627386}
-  - component: {fileID: 114418417777731666}
-  m_Layer: 0
+  - component: {fileID: 114406602453702760}
+  m_Layer: 12
   m_Name: BossABulletA
   m_TagString: Light Bullet
   m_Icon: {fileID: 0}
@@ -130,7 +130,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &114418417777731666
+--- !u!114 &114406602453702760
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -138,12 +138,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1096047765471096}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c96d124b80e832f4cbb740a20e4522b8, type: 3}
+  m_Script: {fileID: 11500000, guid: 73f2527e6eafa9942a1827c2981b1730, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
-  rotate: 0
-  spawnPoint: {fileID: 1615699914049124, guid: b20c48981ac055942b1e8b8add4243e6, type: 2}
+  speed: 7
+  rotate: 8
 --- !u!122 &122821381564558096
 Halo:
   m_ObjectHideFlags: 1
