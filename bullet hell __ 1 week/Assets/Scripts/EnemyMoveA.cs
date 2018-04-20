@@ -21,7 +21,7 @@ public class EnemyMoveA : MonoBehaviour
 		rb = GetComponent<Rigidbody>();
 		transform.Rotate(0.0f, rotate, 0.0f);
 		moveBeforeShoot = 120;
-		waitWhileShoot = 180;
+		waitWhileShoot = 145;
 //		Instantiate(pattern, rb.position, rb.rotation);
 	}
 	

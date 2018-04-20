@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4128856040403932}
   - component: {fileID: 54554876581470084}
-  - component: {fileID: 136774110763091036}
+  - component: {fileID: 65546540329440768}
   - component: {fileID: 114954245049643628}
   - component: {fileID: 114266467301682324}
   m_Layer: 0
@@ -131,6 +131,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &65546540329440768
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1734020383990658}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.5, y: 2, z: 5.75}
+  m_Center: {x: 0, y: -10, z: -0.575}
 --- !u!95 &95830603585478392
 Animator:
   serializedVersion: 3
@@ -174,16 +186,3 @@ MonoBehaviour:
   pattern: {fileID: 1956980817333804, guid: 60c3216485169e84681da47d88a93034, type: 2}
   speed: 5.5
   rotate: 25
---- !u!136 &136774110763091036
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1734020383990658}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 3
-  m_Height: 15
-  m_Direction: 1
-  m_Center: {x: 0, y: -7, z: 0}
