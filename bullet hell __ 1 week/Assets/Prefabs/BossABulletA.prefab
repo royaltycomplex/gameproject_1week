@@ -38,7 +38,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4441924432733072}
   - component: {fileID: 54218484829052850}
-  - component: {fileID: 135052660166627386}
+  - component: {fileID: 136011428370881224}
   - component: {fileID: 114406602453702760}
   m_Layer: 12
   m_Name: BossABulletA
@@ -154,8 +154,8 @@ Halo:
     serializedVersion: 2
     rgba: 4278190335
   m_Size: 0.5
---- !u!135 &135052660166627386
-SphereCollider:
+--- !u!136 &136011428370881224
+CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -163,6 +163,7 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 2
   m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Height: 5
+  m_Direction: 1
+  m_Center: {x: 0, y: -2.5, z: 0}

@@ -85,13 +85,14 @@ GameObject:
   - component: {fileID: 54368549421264178}
   - component: {fileID: 136664919068970966}
   - component: {fileID: 114535529779438140}
+  - component: {fileID: 114922200597947588}
   m_Layer: 11
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4263598584608902
 Transform:
   m_ObjectHideFlags: 1
@@ -251,16 +252,27 @@ MonoBehaviour:
   speed: 15
   tilt: 2.2
   boundary:
-    xMin: -8.5
-    xMax: 8.5
+    xMin: -9.5
+    xMax: 9.5
     zMin: -1
-    zMax: 25
+    zMax: 24.5
   fireRate: 0
   bullet: {fileID: 1785296854182856, guid: 0c9fdeea3e3ca404fae4594ea953f7ce, type: 2}
   bulletSpawns:
   - {fileID: 4662038203986090}
   - {fileID: 4909150514257130}
   - {fileID: 4944509827698484}
+--- !u!114 &114922200597947588
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1804499959267794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c632913f3bf3ba44d8fc2e9cfd5ca6b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!136 &136664919068970966
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -271,6 +283,6 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 1
-  m_Height: 0.2
-  m_Direction: 2
-  m_Center: {x: -0, y: 0, z: 0}
+  m_Height: 5
+  m_Direction: 1
+  m_Center: {x: -0, y: 2.5, z: 0}
