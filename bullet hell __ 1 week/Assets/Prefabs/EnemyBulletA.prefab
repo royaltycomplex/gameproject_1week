@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 54208319699567708}
   - component: {fileID: 136550522979029232}
   - component: {fileID: 114313855775224666}
+  - component: {fileID: 114540291128120068}
   m_Layer: 12
   m_Name: EnemyBulletA
   m_TagString: Light Bullet
@@ -143,13 +144,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 9
   rotate: 0
+--- !u!114 &114540291128120068
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1746097320113214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07d5479b4d3651c428ed7337ea99039d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!122 &122944928151531436
 Halo:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1094024960701118}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Color:
     serializedVersion: 2
     rgba: 4294888447

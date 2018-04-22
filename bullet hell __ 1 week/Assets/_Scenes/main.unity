@@ -275,6 +275,23 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &529134339 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1804499959267794, guid: 61f251d96290189438eedd8b20aa53b6,
+    type: 2}
+  m_PrefabInternal: {fileID: 409374016}
+--- !u!114 &529134345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 529134339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0f5802ad0ed3d045b25554fdb9e8c40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightDark: 0
 --- !u!1001 &590165993
 Prefab:
   m_ObjectHideFlags: 0
@@ -1056,7 +1073,7 @@ Transform:
   m_GameObject: {fileID: 1708621061}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 12}
-  m_LocalScale: {x: 20, y: 10, z: 30}
+  m_LocalScale: {x: 22.5, y: 10, z: 30}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8

@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 54256189027283972}
   - component: {fileID: 136895270122337124}
   - component: {fileID: 114631523112974352}
+  - component: {fileID: 114397458395992588}
   m_Layer: 12
   m_Name: EnemyBulletB
   m_TagString: Dark Bullet
@@ -130,6 +131,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &114397458395992588
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1695618154873382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07d5479b4d3651c428ed7337ea99039d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114631523112974352
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -149,7 +161,7 @@ Halo:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1624443508721980}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Color:
     serializedVersion: 2
     rgba: 4294965707
