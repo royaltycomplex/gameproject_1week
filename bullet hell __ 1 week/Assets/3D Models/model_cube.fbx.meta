@@ -1,62 +1,23 @@
 fileFormatVersion: 2
-guid: cf5dfb31bf37f6f41b655d6c7c73c3a3
-timeCreated: 1524193901
+guid: 42d843cfe5915414e9375e7de75d4783
+timeCreated: 1524364909
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: texture_playerShipbody
-    2100002: texture_playerShipwings
-    2100004: lambert1
-    2100006: blinn2
-    2100008: texture_shipJets
-    2100010: texture_bodyExterior
-    2100012: lambert7
-    2100014: texture_shipBody
-    2100016: Default_Material
-    2100018: texture_shipCockpit
+    2100000: lambert2
     2300000: //RootNode
     3300000: //RootNode
-    4300000: model_playerShip
+    4300000: model_cube
     9500000: //RootNode
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Default_Material
-    second: {fileID: 2100000, guid: 04d90b503045ae54ab9b80e1369cf2f2, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: texture_bodyExterior
-    second: {fileID: 2100000, guid: c18b902226f947a4593b352a46e3210d, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: texture_playerShipwings
-    second: {fileID: 2100000, guid: 57dbab250f5069846a332019c47a4372, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: texture_shipBody
-    second: {fileID: 2100000, guid: d377f6c6420b12844ae22c562429cb82, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: texture_shipCockpit
-    second: {fileID: 2100000, guid: 79e795850e3a85349a5fe9b97b4a8df5, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: texture_shipJets
-    second: {fileID: 2100000, guid: c18b902226f947a4593b352a46e3210d, type: 2}
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
