@@ -18,7 +18,7 @@ public class EnemyPatternD : MonoBehaviour
 		waitToSpawn = 0;
 		spawnFrame = 10;
 
-		enemyBullets = GameObject.Find("EnemyBullets");
+		enemyBullets = GameObject.FindWithTag("EnemyBulletSpawn");
 	}
 	
 	// Update is called once per frame

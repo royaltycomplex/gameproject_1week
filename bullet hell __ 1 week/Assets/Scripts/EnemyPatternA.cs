@@ -28,7 +28,7 @@ public class EnemyPatternA : MonoBehaviour {
 		transform.Rotate(0.0f, -20.0f, 0.0f);
 		defaultRotation = transform.rotation;
 
-		enemyBullets = GameObject.Find("EnemyBullets");
+		enemyBullets = GameObject.FindWithTag("EnemyBulletSpawn");
 //		cooldown = 0;
 	}
 	

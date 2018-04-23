@@ -20,7 +20,7 @@ public class EnemyPatternC : MonoBehaviour
 	void Start () 
 	{
 		defaultRotation = transform.rotation;
-		enemyBullets = GameObject.Find("EnemyBullets");
+		enemyBullets = GameObject.FindWithTag("EnemyBulletSpawn");
 
 		waitToSpawn = 0;
 		spawnFrame = 10;

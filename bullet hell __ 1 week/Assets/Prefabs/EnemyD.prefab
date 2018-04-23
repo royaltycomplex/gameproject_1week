@@ -172,6 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 135
+  scoreValue: 200
 --- !u!114 &114954430612148028
 MonoBehaviour:
   m_ObjectHideFlags: 1

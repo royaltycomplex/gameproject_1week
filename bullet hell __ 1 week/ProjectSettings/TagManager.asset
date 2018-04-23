@@ -10,6 +10,8 @@ TagManager:
   - Enemy
   - Neutral Bullet
   - Boundary
+  - EnemyBulletSpawn
+  - PlayerBulletSpawn
   layers:
   - Default
   - TransparentFX
