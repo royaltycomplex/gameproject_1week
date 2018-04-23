@@ -18,7 +18,7 @@ public class DestroyByBullet : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other)
 	{
-		if ((other.tag == "Light Bullet" && !lightDark) || (other.tag == "Dark Bullet" && lightDark) || other.tag == "Enemy")
+		if ((other.tag == "Light Bullet" && !lightDark) || (other.tag == "Dark Bullet" && lightDark) || other.tag == "Enemy" || other.tag == "Neutral Bullet")
 		{
 			Destroy(gameObject);
 		}

@@ -8,6 +8,8 @@ TagManager:
   - Dark Bullet
   - Player Bullet
   - Enemy
+  - Neutral Bullet
+  - Boundary
   layers:
   - Default
   - TransparentFX
