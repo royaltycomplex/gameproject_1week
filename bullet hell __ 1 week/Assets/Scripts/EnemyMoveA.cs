@@ -37,7 +37,7 @@ public class EnemyMoveA : MonoBehaviour
 			}
 			else
 			{
-				Instantiate(pattern, rb.position, rb.rotation, transform.parent);
+				Instantiate(pattern, rb.position - (transform.forward * 1.5f), rb.rotation, transform.parent);
 				frameCounter = 0;
 				shoot = true;
 			}

@@ -32,6 +32,7 @@ public class EnemyHP : MonoBehaviour {
 	{
 		if (other.tag == "Player Bullet")
 		{
+			gc.AddScore (5);
 			hp--;
 			Destroy(other.gameObject);
 		}
