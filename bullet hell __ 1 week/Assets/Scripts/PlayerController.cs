@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour {
 	private Rigidbody rb;
 	private float nextFire;
 	private GameObject bulletObject;
+	private bool focus;
+	private float defSpeed;
 
 	public float speed;
 	public float tilt;
@@ -26,10 +28,13 @@ public class PlayerController : MonoBehaviour {
 	{
 		rb = GetComponent<Rigidbody>();
 		bulletObject = GameObject.FindWithTag("PlayerBulletSpawn");
+		focus = GetComponent<LightSwitch>().focus;
+		defSpeed = speed;
 	}
 
 	void Update()
 	{
+		focus = GetComponent<LightSwitch>().focus;
 		if (Input.GetButton("Fire1") && Time.time > nextFire)
 		{
 			nextFire = Time.time + fireRate;
@@ -37,6 +42,14 @@ public class PlayerController : MonoBehaviour {
 			{
 				Instantiate(bullet, bulletSpawn.position, bulletSpawn.rotation, bulletObject.transform);
 			}
+		}
+		if (focus)
+		{
+			speed = defSpeed / 3;
+		}
+		else if (!focus)
+		{
+			speed = defSpeed;
 		}
 	}
 
