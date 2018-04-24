@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 54297413085054824}
   - component: {fileID: 136155037911813938}
   - component: {fileID: 114748381243851604}
+  - component: {fileID: 114940572865739620}
   m_Layer: 12
   m_Name: EnemyBulletK
   m_TagString: Dark Bullet
@@ -142,7 +143,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 18.5
-  rotate: -29
+  rotate: 12
+--- !u!114 &114940572865739620
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1494870106221072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07d5479b4d3651c428ed7337ea99039d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!122 &122851342735829456
 Halo:
   m_ObjectHideFlags: 1

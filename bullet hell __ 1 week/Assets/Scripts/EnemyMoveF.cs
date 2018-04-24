@@ -51,7 +51,7 @@ public class EnemyMoveF : MonoBehaviour
 		}
 		if ((waitBeforeShoot >= shootFrame && shootNumber < shootMax) && onScreen)
 		{
-			bulletSpawn = Instantiate(pattern, transform.position - (transform.forward * 0.65f), transform.rotation, gameObject.transform);
+			bulletSpawn = Instantiate(pattern, transform.position - (transform.forward * 1.0f), transform.rotation, gameObject.transform);
 			onScreen = false;
 			moving = false;
 		}
