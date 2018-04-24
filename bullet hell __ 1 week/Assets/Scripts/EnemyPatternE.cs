@@ -36,6 +36,7 @@ public class EnemyPatternE : MonoBehaviour
 			int i = 0;
 			while (i < maxBullets)
 			{
+				bullets[i].GetComponent<Mover>().rotate = 0;
 				if (spawnCount < spawnMax)
 				{
 					Quaternion bulletRotation = defaultRotation * Quaternion.Euler (0.0f, 1.0f, 0.0f);

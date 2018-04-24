@@ -15,11 +15,15 @@ public class PlayerController : MonoBehaviour {
 	private GameObject bulletObject;
 	private bool focus;
 	private float defSpeed;
+	private float waitToRespawn;
+	private float respawnFrame;
 
 	public float speed;
 	public float tilt;
 	public Boundary boundary;
 	public float fireRate;
+	public int lives;
+	public bool respawning = false;
 
 	public GameObject bullet;
 	public Transform[] bulletSpawns;
@@ -30,11 +34,41 @@ public class PlayerController : MonoBehaviour {
 		bulletObject = GameObject.FindWithTag("PlayerBulletSpawn");
 		focus = GetComponent<LightSwitch>().focus;
 		defSpeed = speed;
+		waitToRespawn = 0;
+		respawnFrame = 180;
 	}
 
 	void Update()
 	{
 		focus = GetComponent<LightSwitch>().focus;
+
+		if (!respawning)
+		{
+			GetComponent<CapsuleCollider>().enabled = true;
+			GetComponentInChildren<MeshRenderer>().enabled = true;
+		}
+
+		else if (respawning)
+		{
+			GetComponent<CapsuleCollider>().enabled = false;
+			if (waitToRespawn >= respawnFrame)
+			{
+				waitToRespawn = 0;
+				respawning = false;
+			}
+			if (waitToRespawn % 12 == 0)
+			{
+				GetComponentInChildren<MeshRenderer>().enabled = false;
+			}
+			else if (waitToRespawn % 12 == 6)
+			{
+				GetComponentInChildren<MeshRenderer>().enabled = true;
+			}
+			waitToRespawn++;
+		}
+
+
+
 		if (Input.GetButton("Fire1") && Time.time > nextFire)
 		{
 			nextFire = Time.time + fireRate;

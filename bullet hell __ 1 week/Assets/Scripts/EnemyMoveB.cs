@@ -7,6 +7,11 @@ public class EnemyMoveB : MonoBehaviour {
 	public GameObject pattern;
 	public float speed;
 	public float rotate;
+	public int spawnFrame;
+
+	private int waitToSpawn;
+
+	private bool spawned = false;
 	
 	private Rigidbody rb;
 
@@ -21,13 +26,24 @@ public class EnemyMoveB : MonoBehaviour {
 	void Update () 
 	{
 		rb.position += -transform.forward * Time.deltaTime * speed;
+
+		if (spawned)
+			{
+				if (waitToSpawn >= spawnFrame)
+				{
+					Instantiate(pattern, transform.position, transform.rotation, gameObject.transform);
+					spawned = false;
+					waitToSpawn = 0;
+				}
+				waitToSpawn++;
+			}
 	}
 
 	void OnTriggerEnter(Collider other)
 	{
 		if (other.tag == "Boundary")
 		{
-			Instantiate(pattern, transform.position, transform.rotation, gameObject.transform);
+			spawned = true;
 		}
 	}
 }

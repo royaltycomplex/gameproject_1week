@@ -12,6 +12,8 @@ TagManager:
   - Boundary
   - EnemyBulletSpawn
   - PlayerBulletSpawn
+  - Background
+  - EnemySpawn
   layers:
   - Default
   - TransparentFX

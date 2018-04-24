@@ -13,13 +13,14 @@ public class EnemyMoveE : MonoBehaviour
 	private int shootFrame;
 
 	private int shootCount;
-	private int shootLimit;
+	public int shootLimit;
 
 	private int shootNumber;
-	private int shootMax;
+	public int shootMax;
 
 	private bool onScreen = false;
 	private bool moving = true;
+	private bool moving2 = false;
 
 	private GameObject bulletSpawn;
 	
@@ -33,8 +34,6 @@ public class EnemyMoveE : MonoBehaviour
 		shootCount = 0;
 		shootNumber = 0;
 		shootFrame = 30;
-		shootLimit = 500;
-		shootMax = 3;
 	}
 	
 	// Update is called once per frame
@@ -73,7 +72,20 @@ public class EnemyMoveE : MonoBehaviour
 		if (waitBeforeShoot >= shootFrame && shootNumber >= shootMax)
 		{
 			waitBeforeShoot = 0;
-			moving = true;
+			if (rotate == 0)
+			{
+				moving = true;
+			}
+			else
+			{
+				moving2 = true;
+			}
+			
+		}
+		if (moving2)
+		{
+			rb.position += -transform.forward * Time.deltaTime * speed;
+			rb.rotation *= Quaternion.Euler (0.0f, rotate, 0.0f);
 		}
 	}
 

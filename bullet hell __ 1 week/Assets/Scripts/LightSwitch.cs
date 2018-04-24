@@ -15,11 +15,11 @@ public class LightSwitch : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetButtonDown ("Fire2"))
+		if (Input.GetButtonDown ("Fire3"))
 		{
 			lightDark = !lightDark;
 		}
-		if (Input.GetButton ("Fire3"))
+		if (Input.GetButton ("Fire2"))
 		{
 			focus = true;
 		}

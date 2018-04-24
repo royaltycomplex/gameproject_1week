@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 54472721942855596}
   - component: {fileID: 136942159620804138}
   - component: {fileID: 114520225990920746}
+  - component: {fileID: 114880741907202548}
   - component: {fileID: 114718756740546832}
   m_Layer: 12
   m_Name: EnemyBulletJ
@@ -142,8 +143,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73f2527e6eafa9942a1827c2981b1730, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 18.5
-  rotate: -15
+  speed: 7.5
+  rotate: 7
 --- !u!114 &114718756740546832
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -153,6 +154,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 07d5479b4d3651c428ed7337ea99039d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114880741907202548
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1188018536594744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dff5a68c5567dcd4aa09719de1f91e6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!122 &122826370976848696

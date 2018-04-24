@@ -186,4 +186,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pattern: {fileID: 1841017969168976, guid: 464dcc85a130f204e81c149185f145d5, type: 2}
   speed: 8
-  rotate: 0
+  rotate: -0.5
+  shootLimit: 350
+  shootMax: 2

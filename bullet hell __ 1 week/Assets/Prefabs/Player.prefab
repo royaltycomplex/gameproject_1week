@@ -253,6 +253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lightDark: 0
+  focus: 0
 --- !u!114 &114535529779438140
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -272,6 +273,8 @@ MonoBehaviour:
     zMin: -1
     zMax: 24.5
   fireRate: 0
+  lives: 3
+  respawning: 0
   bullet: {fileID: 1785296854182856, guid: 0c9fdeea3e3ca404fae4594ea953f7ce, type: 2}
   bulletSpawns:
   - {fileID: 4662038203986090}

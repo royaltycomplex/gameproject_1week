@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 54702166625161798}
   - component: {fileID: 136828450273650244}
   - component: {fileID: 114980565796779300}
+  - component: {fileID: 114084692135873732}
   - component: {fileID: 114505654073534432}
   m_Layer: 12
   m_Name: EnemyBulletD
@@ -131,6 +132,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &114084692135873732
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1709686710710996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dff5a68c5567dcd4aa09719de1f91e6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114505654073534432
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -153,8 +165,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73f2527e6eafa9942a1827c2981b1730, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5.5
-  rotate: 0
+  speed: 5
+  rotate: -11
 --- !u!122 &122768673918856738
 Halo:
   m_ObjectHideFlags: 1

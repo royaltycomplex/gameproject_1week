@@ -171,8 +171,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7691954d37e98884094b44bb95ed47e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 135
-  scoreValue: 200
+  hp: 235
+  scoreValue: 135
 --- !u!114 &114954430612148028
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -186,4 +186,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pattern: {fileID: 1675819420753776, guid: 238aaa0224c764542be9b6a253b108c4, type: 2}
   speed: 7
-  rotate: 45
+  rotate: -90

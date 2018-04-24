@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 136187352213291880}
   - component: {fileID: 114011070986151814}
   - component: {fileID: 114270090019601036}
+  - component: {fileID: 114438595447187034}
   - component: {fileID: 114538587139412008}
   m_Layer: 12
   m_Name: EnemyBulletG
@@ -157,6 +158,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 8.5
   rotate: 0
+--- !u!114 &114438595447187034
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1055959740268402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dff5a68c5567dcd4aa09719de1f91e6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114538587139412008
 MonoBehaviour:
   m_ObjectHideFlags: 1

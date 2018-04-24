@@ -73,7 +73,7 @@ public class EnemyMoveD : MonoBehaviour {
 
 			if (shooting)
 			{
-			bulletSpawn = Instantiate(pattern, transform.position, transform.rotation, gameObject.transform);
+			bulletSpawn = Instantiate(pattern, transform.position - (transform.forward * 1.5f), transform.rotation, gameObject.transform);
 			onScreen = false;
 			moving = false;
 			shooting = false;

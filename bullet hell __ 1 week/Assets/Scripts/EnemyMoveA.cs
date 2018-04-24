@@ -13,6 +13,7 @@ public class EnemyMoveA : MonoBehaviour
 	private int waitWhileShoot;
 	private int frameCounter = 0;
 	private bool shoot = false;
+	private bool canShoot = false;
 	private Rigidbody rb;
 
 	// Use this for initialization
@@ -28,7 +29,8 @@ public class EnemyMoveA : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		if (!shoot)
+		if (!canShoot) {rb.position += -transform.forward * Time.deltaTime * speed;}
+		if (!shoot && canShoot)
 		{
 			if (frameCounter < moveBeforeShoot)
 			{
@@ -53,6 +55,14 @@ public class EnemyMoveA : MonoBehaviour
 				frameCounter = 0;
 				shoot = false;
 			}
+		}
+	}
+
+	void OnTriggerEnter (Collider other)
+	{
+		if (other.tag == "Boundary")
+		{
+			canShoot = true;
 		}
 	}
 }
