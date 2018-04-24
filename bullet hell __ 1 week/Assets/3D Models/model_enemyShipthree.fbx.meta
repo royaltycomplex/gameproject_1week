@@ -12,7 +12,12 @@ ModelImporter:
     3300000: //RootNode
     4300000: model_enemyShip
     9500000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: texture_enemyShip
+    second: {fileID: 2100000, guid: 40f419a6dd317ed4c83762d9943c4e98, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

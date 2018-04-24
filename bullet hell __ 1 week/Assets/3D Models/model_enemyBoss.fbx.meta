@@ -44,7 +44,12 @@ ModelImporter:
     4300002: model_enemyBoss
     4300004: pSphere3
     9500000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: texture_bossBody
+    second: {fileID: 2100000, guid: e00667815f9eabc4ca2b74df07f29ec1, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
