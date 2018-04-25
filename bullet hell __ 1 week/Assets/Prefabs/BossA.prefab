@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 54380308894493242}
   - component: {fileID: 135530049724505404}
   - component: {fileID: 114033576838619396}
+  - component: {fileID: 114484642838315174}
   m_Layer: 0
   m_Name: BossA
   m_TagString: Enemy
@@ -54,7 +55,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1412443887187944}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 5, z: 0}
+  m_LocalPosition: {x: 0, y: 5, z: 24}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children:
   - {fileID: 4695066373263864}
@@ -161,7 +162,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1890dadb947448448b10c4655cf2d1d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 
+  hp: b0040000b6030000
+  score: fa0000002c010000
+  phaseCount: 0
+--- !u!114 &114484642838315174
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1412443887187944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c7075baf7ee36447afcc25db8b28fa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPatterns:
+  - {fileID: 1615699914049124, guid: b20c48981ac055942b1e8b8add4243e6, type: 2}
+  - {fileID: 1302098811667638, guid: 9fdc9645c15dffc4ca992245fb3a369d, type: 2}
+  speed: 13
 --- !u!135 &135530049724505404
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -11,7 +11,6 @@ public class GameController : MonoBehaviour {
 	public int score;
 
 	private GameObject player;
-	private bool livesUp = false;
 	private int livesUpValue;
 	private int livesUpScore;
 
@@ -29,7 +28,7 @@ public class GameController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		livesText.text = "Lives: " + player.GetComponent<PlayerController>().lives;
+		if (player != null) {livesText.text = "Lives: " + player.GetComponent<PlayerController>().lives;}
 
 		if (livesUpScore >= livesUpValue) 
 		{

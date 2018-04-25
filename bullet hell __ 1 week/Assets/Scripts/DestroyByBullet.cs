@@ -8,14 +8,14 @@ public class DestroyByBullet : MonoBehaviour {
 	private bool focus;
 	private int lives;
 
-	private GameObject gc;
+//	private GameObject gc;
 
 	// Use this for initialization
 	void Start () {
 		lightDark = GetComponent<LightSwitch>().lightDark;
 		focus = GetComponent<LightSwitch>().focus;
 		lives = GetComponent<PlayerController>().lives;
-		gc = GameObject.FindWithTag("GameController");
+//		gc = GameObject.FindWithTag("GameController");
 	}
 	
 	// Update is called once per frame
