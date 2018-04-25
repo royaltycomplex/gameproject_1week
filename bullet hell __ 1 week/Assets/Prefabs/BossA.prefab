@@ -162,8 +162,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1890dadb947448448b10c4655cf2d1d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: b0040000b6030000
-  score: fa0000002c010000
+  hp: ac0d000072060000
+  score: 1a040000d0070000
   phaseCount: 0
 --- !u!114 &114484642838315174
 MonoBehaviour:
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1412443887187944}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7c7075baf7ee36447afcc25db8b28fa9, type: 3}
   m_Name: 
@@ -179,7 +179,11 @@ MonoBehaviour:
   bulletPatterns:
   - {fileID: 1615699914049124, guid: b20c48981ac055942b1e8b8add4243e6, type: 2}
   - {fileID: 1302098811667638, guid: 9fdc9645c15dffc4ca992245fb3a369d, type: 2}
+  - {fileID: 1521354513660800, guid: be4b80cb0442ba84db18fe76d40ba1df, type: 2}
+  - {fileID: 1804227113126322, guid: cb6267b929286bf4799844ff5db4cb21, type: 2}
+  - {fileID: 1826523402810524, guid: 770d2b596abe5e348a1a6c52e54ff571, type: 2}
   speed: 13
+  enemyBullets: {fileID: 0}
 --- !u!135 &135530049724505404
 SphereCollider:
   m_ObjectHideFlags: 1

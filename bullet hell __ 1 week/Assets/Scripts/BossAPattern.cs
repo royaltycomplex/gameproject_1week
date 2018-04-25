@@ -26,7 +26,10 @@ public class BossAPattern : MonoBehaviour
 	private int waitToSpawn;
 	private int spawnFrame;
 
-	private GameObject enemyBullets;
+	private bool phase2Spawned = false;
+	private bool moved = false;
+
+	public GameObject enemyBullets;
 
 	private GameObject bulletSpawn;
 
@@ -86,7 +89,29 @@ public class BossAPattern : MonoBehaviour
 			waitToMove++;
 		}
 
+		if (phaseCount == 1)
+		{
+			zTransPicked = false; sidePicked = false; movedToSide = false; moveToCenter = false; wait = false;
+			if (!phase2Spawned) {transform.position = Vector3.MoveTowards(transform.position, new Vector3(0.0f, 5.0f, 20.0f), speed * Time.deltaTime);}
+			if (!phase2Spawned && transform.position == new Vector3(0.0f, 5.0f, 20.0f))
+			{
+				if (bulletSpawn != null) {Destroy(bulletSpawn);}
+//				Instantiate(bulletPatterns[0], transform.position, transform.rotation, gameObject.transform);
+				Instantiate(bulletPatterns[3], transform.position + (transform.right * 5.0f), transform.rotation, enemyBullets.transform);
+				Instantiate(bulletPatterns[4], transform.position - (transform.right * 5.0f), transform.rotation, enemyBullets.transform);
+				Instantiate(bulletPatterns[2], transform.position, transform.rotation, gameObject.transform);
+				speed = 1.5f;
+				phase2Spawned = true;
+			}
+			if (phase2Spawned)
+			{
 
+				if (!moved) {xSide = Random.Range(-8, 8); zTransRand = Random.Range(10, 24); moved = true;}
+				if (moved) {transform.position = Vector3.MoveTowards(transform.position, new Vector3(xSide, 5.0f, zTransRand), speed * Time.deltaTime);}
+				if (moved && transform.position == new Vector3(xSide, 5.0f, zTransRand)) {moved = false;}
+
+			}
+		}
 
 	}
 }

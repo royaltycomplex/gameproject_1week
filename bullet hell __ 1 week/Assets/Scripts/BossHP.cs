@@ -35,13 +35,16 @@ public class BossHP : MonoBehaviour
 	void Update () 
 	{
 		percentage = (1.0f * hp[phaseCount]) / maxHP;
-		print(percentage);
 		bossHealthBar.GetComponent<RectTransform>().localScale = new Vector3(percentage, 1.0f, 1.0f);
 
 		if (hp[phaseCount] <= 0)
 		{
+			foreach (Transform bullet in GetComponent<BossAPattern>().enemyBullets.transform)
+			{
+				Destroy(bullet.gameObject);
+			}
 			gc.AddScore (score[phaseCount]);
-			if (phaseCount >= maxPhases) {Destroy(gameObject);} else {phaseCount++; maxHP = hp[phaseCount];}
+			if (phaseCount >= maxPhases - 1) {Destroy(gameObject);} else {phaseCount++; maxHP = hp[phaseCount];}
 		}
 	}
 

@@ -6,9 +6,14 @@ public class LevelAController : MonoBehaviour
 {
 
 	public GameObject[] enemies;
+	public GameObject boss;
 
 	private float scrollSpeed;
 	private GameObject bg;
+
+	private bool spawnBoss = false;
+	private bool bossSpawned = false;
+	public GameObject bossSpawn;
 
 	private int waveCount;
 	private int waitToWave;
@@ -16,6 +21,8 @@ public class LevelAController : MonoBehaviour
 
 	private GameObject enemySpawn;
 	private GameObject enemyBullets;
+	private GameObject bossWarning;
+	private GameObject bossHealthBar;
 
 	// Use this for initialization
 	void Start () 
@@ -28,6 +35,9 @@ public class LevelAController : MonoBehaviour
 
 		enemySpawn = GameObject.FindWithTag("EnemySpawn");
 		enemyBullets = GameObject.FindWithTag("EnemyBulletSpawn");
+		bossWarning = GameObject.FindWithTag("Warning");
+		bossHealthBar = GameObject.FindWithTag("BossHealthBar");
+		bossWarning.SetActive(false);
 	}
 	
 	// Update is called once per frame
@@ -41,7 +51,16 @@ public class LevelAController : MonoBehaviour
 			waveCount++;
 		}
 
-		waitToWave++;
+		if (waveCount < 10) {waitToWave++;}
+
+		if (spawnBoss) 
+		{
+			if (bossHealthBar.GetComponent<RectTransform>().localScale != new Vector3 (1.0f, 1.0f, 1.0f)) {bossHealthBar.GetComponent<RectTransform>().localScale += new Vector3(0.0025f, 0.0f, 0.0f);}
+
+			if (!bossSpawned) {bossSpawn = Instantiate(boss, new Vector3 (0.0f, 5.0f, 30.0f), transform.rotation); bossSpawned = true;}
+			if (bossSpawned && bossSpawn.transform.position.z != 24.0f) {bossSpawn.transform.position -= new Vector3 (0.0f, 0.0f, 0.025f);}
+		}
+
 	}
 	
 	void WaveSpawn (int count)
@@ -118,13 +137,13 @@ public class LevelAController : MonoBehaviour
 			Instantiate(enemies[2], new Vector3(200.0f, 5.0f, 10.0f), transform.rotation, enemySpawn.transform);
 
 			enemies[2].GetComponent<EnemyMoveB>().rotate = -90.0f;
-			Instantiate(enemies[2], new Vector3(-560.0f, 5.0f, 16.0f), transform.rotation, enemySpawn.transform);
+			Instantiate(enemies[2], new Vector3(-240.0f, 5.0f, 20.0f), transform.rotation, enemySpawn.transform);
 			enemies[3].GetComponent<EnemyMoveB>().rotate = 90.0f;
-			Instantiate(enemies[3], new Vector3(560.0f, 5.0f, 13.0f), transform.rotation, enemySpawn.transform);
+			Instantiate(enemies[3], new Vector3(240.0f, 5.0f, 24.0f), transform.rotation, enemySpawn.transform);
 			enemies[3].GetComponent<EnemyMoveB>().rotate = -90.0f;
-			Instantiate(enemies[3], new Vector3(-520.0f, 5.0f, 19.0f), transform.rotation, enemySpawn.transform);
+			Instantiate(enemies[3], new Vector3(-220.0f, 5.0f, 10.0f), transform.rotation, enemySpawn.transform);
 			enemies[2].GetComponent<EnemyMoveB>().rotate = 90.0f;
-			Instantiate(enemies[2], new Vector3(520.0f, 5.0f, 10.0f), transform.rotation, enemySpawn.transform);
+			Instantiate(enemies[2], new Vector3(220.0f, 5.0f, 15.0f), transform.rotation, enemySpawn.transform);
 
 			waveFrame = 320;
 
@@ -171,13 +190,14 @@ public class LevelAController : MonoBehaviour
 			Instantiate(enemies[2], new Vector3(55.0f, 5.0f, 13.0f), transform.rotation, enemySpawn.transform);
 
 			enemies[2].GetComponent<EnemyMoveB>().rotate = -90.0f;
-			Instantiate(enemies[2], new Vector3(-135.0f, 5.0f, 16.0f), transform.rotation, enemySpawn.transform);
+			Instantiate(enemies[2], new Vector3(-135.0f, 5.0f, 19.0f), transform.rotation, enemySpawn.transform);
 			enemies[3].GetComponent<EnemyMoveB>().rotate = 90.0f;
-			Instantiate(enemies[3], new Vector3(135.0f, 5.0f, 13.0f), transform.rotation, enemySpawn.transform);
+			Instantiate(enemies[3], new Vector3(135.0f, 5.0f, 10.0f), transform.rotation, enemySpawn.transform);
 
 			waveFrame = 1595;
 
 		}
+
 
 		if (count == 9) 
 		{
@@ -187,6 +207,10 @@ public class LevelAController : MonoBehaviour
  			}
 			scrollSpeed = 0.0f;
 			bg.transform.position = new Vector3 (0.0f, -50.0f, 5.0f);
+			spawnBoss = true;
+			bossWarning.SetActive(true);
+
+
 		}
 
 		waitToWave = 0;
