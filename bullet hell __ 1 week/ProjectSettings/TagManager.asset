@@ -14,6 +14,7 @@ TagManager:
   - PlayerBulletSpawn
   - Background
   - EnemySpawn
+  - BossHealthBar
   layers:
   - Default
   - TransparentFX

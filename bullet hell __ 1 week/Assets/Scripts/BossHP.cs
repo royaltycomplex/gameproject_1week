@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BossHP : MonoBehaviour 
 {
@@ -11,7 +12,11 @@ public class BossHP : MonoBehaviour
 	public int phaseCount;
 	private int maxPhases;
 
+	private int maxHP;
+	private float percentage;
+
 	private GameController gc;
+	private GameObject bossHealthBar;
 
 	// Use this for initialization
 	void Start () 
@@ -21,16 +26,22 @@ public class BossHP : MonoBehaviour
 
 		GameObject gcObject = GameObject.FindWithTag("GameController");
 		if (gcObject != null) {gc = gcObject.GetComponent<GameController>();}
+		bossHealthBar = GameObject.FindWithTag("BossHealthBar");
+
+		maxHP = hp[phaseCount];
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		
+		percentage = (1.0f * hp[phaseCount]) / maxHP;
+		print(percentage);
+		bossHealthBar.GetComponent<RectTransform>().localScale = new Vector3(percentage, 1.0f, 1.0f);
+
 		if (hp[phaseCount] <= 0)
 		{
 			gc.AddScore (score[phaseCount]);
-			if (phaseCount >= maxPhases) {Destroy(gameObject);} else {phaseCount++;}
+			if (phaseCount >= maxPhases) {Destroy(gameObject);} else {phaseCount++; maxHP = hp[phaseCount];}
 		}
 	}
 

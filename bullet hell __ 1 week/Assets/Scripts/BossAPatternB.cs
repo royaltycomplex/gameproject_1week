@@ -30,7 +30,7 @@ public class BossAPatternB : MonoBehaviour
 		index = 0;
 		newIndex = 0;
 		spawnFrame = 1;
-		shootFrame = 85;
+		shootFrame = 180;
 		maxBullets = 36;
 		bulletsSpawned = new GameObject[maxBullets];
 
@@ -62,7 +62,7 @@ public class BossAPatternB : MonoBehaviour
 		{
 			foreach (GameObject bullet in bulletsSpawned)
 			{
-				bullet.GetComponent<Mover>().speed = 2.0f;
+				bullet.GetComponent<Mover>().speed = 3.0f;
 			}
 			Destroy(gameObject);
 		}

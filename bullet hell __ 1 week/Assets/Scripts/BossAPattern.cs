@@ -38,7 +38,7 @@ public class BossAPattern : MonoBehaviour
 		waitToMove = 0;
 		waitFrame = 300;
 		waitToSpawn = 0;
-		spawnFrame = 12;
+		spawnFrame = 13;
 
 		enemyBullets = GameObject.FindWithTag("EnemyBulletSpawn");
 	}
@@ -69,7 +69,7 @@ public class BossAPattern : MonoBehaviour
 				
 			}
 
-			if (movedToSide && transform.position == new Vector3(-xSide, 5.0f, zTransRand)) {Instantiate(bulletPatterns[1], transform.position, transform.rotation); moveToCenter = true;}
+			if (movedToSide && transform.position == new Vector3(-xSide, 5.0f, zTransRand)) {moveToCenter = true;}
 
 			if (movedToSide && moveToCenter) {transform.position = Vector3.MoveTowards(transform.position, new Vector3(0.0f, 5.0f, 24.0f), speed * Time.deltaTime);}
 
