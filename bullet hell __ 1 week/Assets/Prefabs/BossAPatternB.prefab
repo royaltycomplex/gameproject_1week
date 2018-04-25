@@ -9,48 +9,48 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1615699914049124}
+  m_RootGameObject: {fileID: 1302098811667638}
   m_IsPrefabParent: 1
---- !u!1 &1615699914049124
+--- !u!1 &1302098811667638
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4819812226250634}
-  - component: {fileID: 114918199143928434}
+  - component: {fileID: 4803376041036472}
+  - component: {fileID: 114083139639826278}
   m_Layer: 0
-  m_Name: BossAPatternA
+  m_Name: BossAPatternB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4819812226250634
+--- !u!4 &4803376041036472
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1615699914049124}
+  m_GameObject: {fileID: 1302098811667638}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 5, z: 15}
+  m_LocalPosition: {x: 0, y: 0, z: 15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114918199143928434
+--- !u!114 &114083139639826278
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1615699914049124}
+  m_GameObject: {fileID: 1302098811667638}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4907223b3d506e64bb0f7e98272edd08, type: 3}
+  m_Script: {fileID: 11500000, guid: e912f64a63617334392ac126f240fd88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bullets:
-  - {fileID: 1096047765471096, guid: b16c280a1a7aef3468d5c619df7db20d, type: 2}
-  - {fileID: 1281878514373970, guid: ee92aafbdb1dcec4e90516fc0e610824, type: 2}
+  - {fileID: 1467445276709770, guid: 0ff3741ad4328254a9ec4f300991382b, type: 2}
+  - {fileID: 1709686710710996, guid: dab1bacef335da945859848ff32b8821, type: 2}

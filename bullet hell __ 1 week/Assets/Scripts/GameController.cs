@@ -22,7 +22,7 @@ public class GameController : MonoBehaviour {
 		UpdateScore();
 
 		player = GameObject.FindWithTag("Player");
-		livesUpValue = 1000000;
+		livesUpValue = 100000;
 		livesUpScore = score;
 	}
 	
@@ -31,21 +31,17 @@ public class GameController : MonoBehaviour {
 
 		livesText.text = "Lives: " + player.GetComponent<PlayerController>().lives;
 
-		if ((score % livesUpValue) <= (livesUpValue / 5) && (score > livesUpValue - 1)) 
+		if (livesUpScore >= livesUpValue) 
 		{
-			if (!livesUp)
-			{
 				if (player != null) {player.GetComponent<PlayerController>().lives++;}
-				livesUp = true;
-				livesUpScore = score;
-			}
+				livesUpScore = livesUpScore - livesUpValue;
 		}
-		else if (livesUpScore != score) {livesUp = false;}
 	}
 
 	public void AddScore (int newScoreValue)
 	{
 		score += newScoreValue;
+		livesUpScore += newScoreValue;
 		UpdateScore ();
 	}
 

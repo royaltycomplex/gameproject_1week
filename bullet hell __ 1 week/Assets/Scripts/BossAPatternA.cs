@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BossAPatternA : MonoBehaviour {
 
-	public GameObject bullet;
+	public GameObject[] bullets;
 
 	private int waitToSpawn;
 	private int maxBullets;
@@ -12,6 +12,7 @@ public class BossAPatternA : MonoBehaviour {
 	private int spawnCount;
 	private int spawnMax;
 	private int cooldown;
+	private int index;
 
 	private GameObject enemyBullets;
 
@@ -23,6 +24,7 @@ public class BossAPatternA : MonoBehaviour {
 		spawnCount = 0;
 		spawnMax = 2;
 		cooldown = 0;
+		index = 0;
 
 		enemyBullets = GameObject.Find("EnemyBullets");
 	}
@@ -37,16 +39,16 @@ public class BossAPatternA : MonoBehaviour {
 				int i = 0;
 				while (i < maxBullets)
 				{
-					bullet.GetComponent<Mover>().rotate = 8;
+					bullets[index].GetComponent<Mover>().rotate = 8;
 					if (spawnCount > 0)
 					{
-						bullet.GetComponent<Mover>().speed = 7;
+						bullets[index].GetComponent<Mover>().speed = 7;
 					}
 					else
 					{
-						bullet.GetComponent<Mover>().speed = 8;
+						bullets[index].GetComponent<Mover>().speed = 8;
 					}
-					Instantiate(bullet, transform.position, transform.rotation, enemyBullets.transform);
+					Instantiate(bullets[index], transform.position, transform.rotation, enemyBullets.transform);
 					transform.Rotate(0.0f, 10.0f, 0.0f);
 					i++;
 				}
@@ -58,6 +60,8 @@ public class BossAPatternA : MonoBehaviour {
 			{
 				cooldown = 35;
 				spawnCount = 0;
+				if (index == 0) {index = 1;}
+				else {index = 0;}
 			}
 		}
 		else if (cooldown != 0)
