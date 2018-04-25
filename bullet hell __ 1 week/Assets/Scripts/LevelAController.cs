@@ -15,7 +15,7 @@ public class LevelAController : MonoBehaviour
 	private bool bossSpawned = false;
 	public GameObject bossSpawn;
 
-	private int waveCount;
+	private int waveCount = 0;
 	private int waitToWave;
 	private int waveFrame;
 
@@ -23,6 +23,9 @@ public class LevelAController : MonoBehaviour
 	private GameObject enemyBullets;
 	private GameObject bossWarning;
 	private GameObject bossHealthBar;
+	private GameObject varHold;
+
+	private float bossHealthGrow;
 
 	// Use this for initialization
 	void Start () 
@@ -31,13 +34,19 @@ public class LevelAController : MonoBehaviour
 		scrollSpeed = 0.0065f;
 		waitToWave = 0;
 		waveFrame = 120;
-		waveCount = 0;
 
 		enemySpawn = GameObject.FindWithTag("EnemySpawn");
 		enemyBullets = GameObject.FindWithTag("EnemyBulletSpawn");
 		bossWarning = GameObject.FindWithTag("Warning");
 		bossHealthBar = GameObject.FindWithTag("BossHealthBar");
+		bossHealthBar.GetComponent<RectTransform>().localScale = new Vector3 (0.0f, 1.0f, 1.0f);
 		bossWarning.SetActive(false);
+
+		varHold = GameObject.FindWithTag("VariableHold");
+		if (varHold != null) {waveCount = varHold.GetComponent<VariableHold>().waveCount;}
+		Destroy(varHold);
+
+		bossHealthGrow = 0.0f;
 	}
 	
 	// Update is called once per frame
@@ -55,7 +64,12 @@ public class LevelAController : MonoBehaviour
 
 		if (spawnBoss) 
 		{
-			if (bossHealthBar.GetComponent<RectTransform>().localScale != new Vector3 (1.0f, 1.0f, 1.0f)) {bossHealthBar.GetComponent<RectTransform>().localScale += new Vector3(0.0025f, 0.0f, 0.0f);}
+			if (bossHealthBar.GetComponent<RectTransform>().localScale.x < 1.0f) 
+			{
+				bossHealthGrow += 0.025f;
+				bossHealthBar.GetComponent<RectTransform>().localScale = new Vector3(bossHealthGrow, 1.0f, 1.0f);
+			}
+			else {bossHealthBar.GetComponent<RectTransform>().localScale = new Vector3(1.0f, 1.0f, 1.0f);}
 
 			if (!bossSpawned) {bossSpawn = Instantiate(boss, new Vector3 (0.0f, 5.0f, 30.0f), transform.rotation); bossSpawned = true;}
 			if (bossSpawned && bossSpawn.transform.position.z != 24.0f) {bossSpawn.transform.position -= new Vector3 (0.0f, 0.0f, 0.025f);}
@@ -132,14 +146,14 @@ public class LevelAController : MonoBehaviour
 			enemies[3].GetComponent<EnemyMoveB>().rotate = 90.0f;
 			Instantiate(enemies[3], new Vector3(160.0f, 5.0f, 13.0f), transform.rotation, enemySpawn.transform);
 			enemies[3].GetComponent<EnemyMoveB>().rotate = -90.0f;
-			Instantiate(enemies[3], new Vector3(-200.0f, 5.0f, 19.0f), transform.rotation, enemySpawn.transform);
+			Instantiate(enemies[3], new Vector3(-200.0f, 5.0f, 22.0f), transform.rotation, enemySpawn.transform);
 			enemies[2].GetComponent<EnemyMoveB>().rotate = 90.0f;
 			Instantiate(enemies[2], new Vector3(200.0f, 5.0f, 10.0f), transform.rotation, enemySpawn.transform);
 
 			enemies[2].GetComponent<EnemyMoveB>().rotate = -90.0f;
-			Instantiate(enemies[2], new Vector3(-240.0f, 5.0f, 20.0f), transform.rotation, enemySpawn.transform);
+			Instantiate(enemies[2], new Vector3(-185.0f, 5.0f, 20.0f), transform.rotation, enemySpawn.transform);
 			enemies[3].GetComponent<EnemyMoveB>().rotate = 90.0f;
-			Instantiate(enemies[3], new Vector3(240.0f, 5.0f, 24.0f), transform.rotation, enemySpawn.transform);
+			Instantiate(enemies[3], new Vector3(185.0f, 5.0f, 24.0f), transform.rotation, enemySpawn.transform);
 			enemies[3].GetComponent<EnemyMoveB>().rotate = -90.0f;
 			Instantiate(enemies[3], new Vector3(-220.0f, 5.0f, 10.0f), transform.rotation, enemySpawn.transform);
 			enemies[2].GetComponent<EnemyMoveB>().rotate = 90.0f;

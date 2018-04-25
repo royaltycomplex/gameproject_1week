@@ -8,6 +8,15 @@ public class DestroyByBullet : MonoBehaviour {
 	private bool focus;
 	private int lives;
 
+	private GameObject levelController;
+	private GameObject enemySpawn;
+	private GameObject enemyBullets;
+	private GameObject playerBullets;
+//	private GameObject player;
+
+//	private GameObject pause;
+	private GameObject continueMenu;
+
 //	private GameObject gc;
 
 	// Use this for initialization
@@ -15,11 +24,22 @@ public class DestroyByBullet : MonoBehaviour {
 		lightDark = GetComponent<LightSwitch>().lightDark;
 		focus = GetComponent<LightSwitch>().focus;
 		lives = GetComponent<PlayerController>().lives;
+
+		levelController = GameObject.FindWithTag("LevelController");
+		enemySpawn = GameObject.FindWithTag("EnemySpawn");
+		enemyBullets = GameObject.FindWithTag("EnemyBulletSpawn");
+		playerBullets = GameObject.FindWithTag("PlayerBulletSpawn");
+//		player = GameObject.FindWithTag("Player");
+//		pause = GameObject.FindWithTag("Pause");
+		continueMenu = GameObject.FindWithTag("Continue");
+
 //		gc = GameObject.FindWithTag("GameController");
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		continueMenu.SetActive(false);
+
 		lightDark = GetComponent<LightSwitch>().lightDark;
 		focus = GetComponent<LightSwitch>().focus;
 		lives = GetComponent<PlayerController>().lives;
@@ -35,7 +55,8 @@ public class DestroyByBullet : MonoBehaviour {
 				GetComponent<PlayerController>().lives--;
 				GetComponent<PlayerController>().respawning = true;
 			}
-			else {Destroy(gameObject);}
+			else {levelController.SetActive(false); enemySpawn.SetActive(false); enemyBullets.SetActive(false); playerBullets.SetActive(false); continueMenu.SetActive(true); gameObject.SetActive(false);
+			continueMenu.GetComponent<MenuController>().cursorPosition = continueMenu.GetComponent<MenuController>().cursorLimit;}
 		}
 	}
 }

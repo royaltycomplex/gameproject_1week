@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour {
 	public GameObject bullet;
 	public Transform[] bulletSpawns;
 
+//	private GameObject gc;
+
 	void Start()
 	{
 		rb = GetComponent<Rigidbody>();
@@ -36,11 +38,17 @@ public class PlayerController : MonoBehaviour {
 		defSpeed = speed;
 		waitToRespawn = 0;
 		respawnFrame = 180;
+
+//		gc = GameObject.FindWithTag("GameController");
 	}
 
 	void Update()
 	{
+//		if (gc.GetComponent<GameController>().continues == 0) {respawning = false;}
+
 		focus = GetComponent<LightSwitch>().focus;
+
+		lives = Mathf.Clamp(lives, 0, 99);
 
 		if (!respawning)
 		{

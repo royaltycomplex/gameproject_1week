@@ -34,8 +34,11 @@ public class BossHP : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		percentage = (1.0f * hp[phaseCount]) / maxHP;
-		bossHealthBar.GetComponent<RectTransform>().localScale = new Vector3(percentage, 1.0f, 1.0f);
+		if (GetComponent<BossAPattern>().enabled == true)
+		{
+			percentage = (1.0f * hp[phaseCount]) / maxHP;
+			bossHealthBar.GetComponent<RectTransform>().localScale = new Vector3(percentage, 1.0f, 1.0f);
+		}
 
 		if (hp[phaseCount] <= 0)
 		{
@@ -44,7 +47,7 @@ public class BossHP : MonoBehaviour
 				Destroy(bullet.gameObject);
 			}
 			gc.AddScore (score[phaseCount]);
-			if (phaseCount >= maxPhases - 1) {Destroy(gameObject);} else {phaseCount++; maxHP = hp[phaseCount];}
+			if (phaseCount >= maxPhases - 1) {gc.GetComponent<GameController>().levelComplete = true; Destroy(gameObject);} else {phaseCount++; maxHP = hp[phaseCount];}
 		}
 	}
 
@@ -54,7 +57,7 @@ public class BossHP : MonoBehaviour
 		if (other.tag == "Player Bullet")
 		{
 			gc.AddScore (10);
-			hp[phaseCount]--;
+			if (GetComponent<BossAPattern>().enabled == true) {hp[phaseCount]--;}
 			Destroy(other.gameObject);
 		}
 

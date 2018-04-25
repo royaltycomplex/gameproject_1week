@@ -17,6 +17,10 @@ TagManager:
   - BossHealthBar
   - Warning
   - LevelController
+  - VariableHold
+  - Pause
+  - Continue
+  - Pattern
   layers:
   - Default
   - TransparentFX

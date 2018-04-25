@@ -6,6 +6,7 @@ public class BossAPattern : MonoBehaviour
 {
 
 	public GameObject[] bulletPatterns;
+	
 
 
 	public float speed;
@@ -32,6 +33,7 @@ public class BossAPattern : MonoBehaviour
 	public GameObject enemyBullets;
 
 	private GameObject bulletSpawn;
+	private GameObject enemySpawn;
 
 	// Use this for initialization
 	void Start () 
@@ -44,6 +46,7 @@ public class BossAPattern : MonoBehaviour
 		spawnFrame = 13;
 
 		enemyBullets = GameObject.FindWithTag("EnemyBulletSpawn");
+		enemySpawn = GameObject.FindWithTag("EnemySpawn");
 	}
 	
 	// Update is called once per frame
@@ -60,14 +63,14 @@ public class BossAPattern : MonoBehaviour
 			if (transform.position == new Vector3(xSide, 5.0f, zTransRand))
 			{
 				movedToSide = true;
-				Instantiate(bulletPatterns[1], transform.position, transform.rotation);
+				Instantiate(bulletPatterns[1], transform.position, transform.rotation, enemySpawn.transform);
 			}
 
 			if (movedToSide && !moveToCenter) 
 			{
 				transform.position = Vector3.MoveTowards(transform.position, new Vector3(-xSide, 5.0f, zTransRand), speed * Time.deltaTime);
 
-				if (waitToSpawn >= spawnFrame) {Instantiate(bulletPatterns[1], transform.position, transform.rotation); waitToSpawn = 0;}
+				if (waitToSpawn >= spawnFrame) {Instantiate(bulletPatterns[1], transform.position, transform.rotation, enemySpawn.transform); waitToSpawn = 0;}
 				waitToSpawn++;
 				
 			}
@@ -101,6 +104,11 @@ public class BossAPattern : MonoBehaviour
 				Instantiate(bulletPatterns[4], transform.position - (transform.right * 5.0f), transform.rotation, enemyBullets.transform);
 				Instantiate(bulletPatterns[2], transform.position, transform.rotation, gameObject.transform);
 				speed = 1.5f;
+				foreach (Transform child in enemySpawn.transform)
+				{
+ 				    GameObject.Destroy(child.gameObject);
+ 				}
+
 				phase2Spawned = true;
 			}
 			if (phase2Spawned)

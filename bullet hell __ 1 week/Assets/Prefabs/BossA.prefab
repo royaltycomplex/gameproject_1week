@@ -162,8 +162,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1890dadb947448448b10c4655cf2d1d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: ac0d000072060000
-  score: 1a040000d0070000
+  hp: ac0d00003a070000
+  score: 1a040000c4090000
   phaseCount: 0
 --- !u!114 &114484642838315174
 MonoBehaviour:
