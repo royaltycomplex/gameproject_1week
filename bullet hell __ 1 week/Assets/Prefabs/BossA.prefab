@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 114484642838315174}
   m_Layer: 0
   m_Name: BossA
-  m_TagString: Enemy
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -162,8 +162,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1890dadb947448448b10c4655cf2d1d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: ac0d00003a070000
-  score: 1a040000c4090000
+  explosion: {fileID: 1315911609327352, guid: f19cfac79cba08548a8d847eb85c7364, type: 2}
+  hp: ac0d000068100000
+  score: 1a040000b80b0000
   phaseCount: 0
 --- !u!114 &114484642838315174
 MonoBehaviour:
@@ -183,6 +184,7 @@ MonoBehaviour:
   - {fileID: 1804227113126322, guid: cb6267b929286bf4799844ff5db4cb21, type: 2}
   - {fileID: 1826523402810524, guid: 770d2b596abe5e348a1a6c52e54ff571, type: 2}
   speed: 13
+  phase2Spawned: 0
   enemyBullets: {fileID: 0}
 --- !u!135 &135530049724505404
 SphereCollider:

@@ -171,6 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7691954d37e98884094b44bb95ed47e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosion: {fileID: 1315911609327352, guid: f19cfac79cba08548a8d847eb85c7364, type: 2}
   hp: 235
   scoreValue: 135
 --- !u!114 &114983928398135816
@@ -186,5 +187,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pattern: {fileID: 1860749182691606, guid: 7a2b1882f0c13b84b97e6ca4bb0ceb32, type: 2}
   speed: 7
-  rotate: 90
+  rotate: -90
   spawnFrame: 20

@@ -24,6 +24,7 @@ public class CursorMover : MonoBehaviour
 
 		menu = GameObject.Find("menu");
 		oldPosition = menu.GetComponent<MenuController>().cursorPosition;
+		newPosition = oldPosition;
 	}
 	
 	// Update is called once per frame
@@ -35,6 +36,8 @@ public class CursorMover : MonoBehaviour
 		if (oldPosition != newPosition)
 		{
 			GetComponent<RectTransform>().localPosition = new Vector3 (coords[newPosition].x, coords[newPosition].y, coords[newPosition].z);
+
+			GetComponent<AudioSource>().Play();
 
 			defX = transform.position.x;
 			oldPosition = newPosition;

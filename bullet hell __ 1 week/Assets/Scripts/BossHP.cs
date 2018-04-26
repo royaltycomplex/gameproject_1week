@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class BossHP : MonoBehaviour 
 {
 
+	public GameObject explosion;
+
 	public int[] hp;
 	public int[] score;
 
@@ -44,10 +46,33 @@ public class BossHP : MonoBehaviour
 		{
 			foreach (Transform bullet in GetComponent<BossAPattern>().enemyBullets.transform)
 			{
+				if (bullet != null)
+				{
+				explosion.transform.localScale = new Vector3 (0.025f, 0.025f, 0.025f);
+				var ps = explosion.GetComponent<ParticleSystem>().main;
+				ps.startSpeed = 15;
+				ps.duration = 0.02f;
+				ps.startColor = new Color(250.0f/255.0f, 167.0f/255.0f, 1.0f, 0.4f);
+				Instantiate(explosion, bullet.transform.position, bullet.transform.rotation);
+//				gc.AddScore(bullet.GetComponent<BossBulletScore>().score);
 				Destroy(bullet.gameObject);
+				}
 			}
 			gc.AddScore (score[phaseCount]);
-			if (phaseCount >= maxPhases - 1) {gc.GetComponent<GameController>().levelComplete = true; Destroy(gameObject);} else {phaseCount++; maxHP = hp[phaseCount];}
+			if (phaseCount >= maxPhases - 1)
+			{
+			gc.GetComponent<GameController>().levelComplete = true; 
+			explosion.transform.localScale = new Vector3 (0.75f, 0.75f, 0.75f);
+			var ps = explosion.GetComponent<ParticleSystem>().main;
+			ps.startSpeed = 8;
+			ps.duration = 0.2f;
+			ps.startColor = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+			explosion.GetComponent<AudioSource>().playOnAwake = true;
+			explosion.GetComponent<AudioSource>().pitch = 0.35f;
+			Instantiate(explosion, transform.position, transform.rotation);
+			Destroy(gameObject);
+			} 
+			else {phaseCount++; maxHP = hp[phaseCount];}
 		}
 	}
 
@@ -58,6 +83,13 @@ public class BossHP : MonoBehaviour
 		{
 			gc.AddScore (10);
 			if (GetComponent<BossAPattern>().enabled == true) {hp[phaseCount]--;}
+			explosion.transform.localScale = new Vector3 (0.05f, 0.05f, 0.05f);
+			var ps = explosion.GetComponent<ParticleSystem>().main;
+			ps.startSpeed = 15;
+			ps.duration = 0.02f;
+			ps.startColor = new Color(56.0f/255.0f, 156.0f/255.0f, 1.0f, 0.5f);
+			explosion.GetComponent<AudioSource>().playOnAwake = false;
+			Instantiate(explosion, other.transform.position, other.transform.rotation);
 			Destroy(other.gameObject);
 		}
 

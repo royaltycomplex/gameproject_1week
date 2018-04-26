@@ -21,6 +21,9 @@ TagManager:
   - Pause
   - Continue
   - Pattern
+  - Level Music
+  - Boss Music
+  - Boss
   layers:
   - Default
   - TransparentFX

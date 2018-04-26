@@ -185,5 +185,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7691954d37e98884094b44bb95ed47e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosion: {fileID: 1315911609327352, guid: f19cfac79cba08548a8d847eb85c7364, type: 2}
   hp: 420
   scoreValue: 320

@@ -29,6 +29,8 @@ public class GameController : MonoBehaviour {
 	private GameObject pause;
 	private GameObject continueMenu;
 	private GameObject resultsMenu;
+	private GameObject levelMusic;
+	private GameObject boss;
 
 	public bool levelComplete = false;
 	public bool gameOver = false;
@@ -57,6 +59,8 @@ public class GameController : MonoBehaviour {
 		continueMenu = GameObject.FindWithTag("Continue");
 		resultsMenu = GameObject.Find("Results");
 
+		levelMusic = GameObject.FindWithTag("Level Music");
+
 		resultsMenu.SetActive(false);
 		pause.SetActive(false);
 		continueMenu.SetActive(false);
@@ -77,6 +81,15 @@ public class GameController : MonoBehaviour {
 				if (player != null) {player.GetComponent<PlayerController>().lives++;}
 				livesUpScore = livesUpScore - livesUpValue;
 		}
+
+//		if (levelMusic == null) {levelMusic = GameObject.FindWithTag("Boss Music");}
+		if (levelController != null) {if (levelController.GetComponent<LevelAController>().bossSpawned == true) {boss = GameObject.FindWithTag("Boss");}}
+
+//		if (levelMusic.activeInHierarchy && levelMusic != null)
+//		{
+//			if (continueMenu.activeInHierarchy) {levelMusic.GetComponent<MusicLoop>().continueMenu = true;}
+//			else {levelMusic.GetComponent<MusicLoop>().continueMenu = false;}
+//		}
 
 //		if (Input.GetButtonDown("Submit"))
 //		{
@@ -122,12 +135,34 @@ public class GameController : MonoBehaviour {
 		player.transform.position = new Vector3(0.0f, 0.0f, 0.0f);
 		player.GetComponent<PlayerController>().respawning = true;
 		player.GetComponent<PlayerController>().lives = 5;
-		levelController.SetActive(true); enemySpawn.SetActive(true); enemyBullets.SetActive(true); playerBullets.SetActive(true); continueMenu.SetActive(false);
+		if (boss != null) 
+		{
+			boss.GetComponent<BossAPattern>().phase2Spawned = false;
+			boss.GetComponent<BossAPattern>().speed = 13.0f;
+			boss.SetActive(true);
+		}
+		if (levelController != null) {levelController.SetActive(true);}
+		enemySpawn.SetActive(true); enemyBullets.SetActive(true); playerBullets.SetActive(true); continueMenu.SetActive(false);
 		GameObject[] gameObjects = GameObject.FindGameObjectsWithTag ("Pattern");
+		GameObject[] lightBullets = GameObject.FindGameObjectsWithTag("Light Bullet");
+		GameObject[] darkBullets = GameObject.FindGameObjectsWithTag("Dark Bullet");
+		GameObject[] neutralBullets = GameObject.FindGameObjectsWithTag("Neutral Bullet");
      
 		for(int i = 0 ; i < gameObjects.Length ; i ++)
 		{
 			Destroy(gameObjects[i]);
+		}
+		for(int i = 0 ; i < lightBullets.Length ; i ++)
+		{
+			Destroy(lightBullets[i]);
+		}
+		for(int i = 0 ; i < darkBullets.Length ; i ++)
+		{
+			Destroy(darkBullets[i]);
+		}
+		for(int i = 0 ; i < neutralBullets.Length ; i ++)
+		{
+			Destroy(neutralBullets[i]);
 		}
 	}
 

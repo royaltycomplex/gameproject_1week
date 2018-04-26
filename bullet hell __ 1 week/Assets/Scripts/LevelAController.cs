@@ -12,7 +12,7 @@ public class LevelAController : MonoBehaviour
 	private GameObject bg;
 
 	private bool spawnBoss = false;
-	private bool bossSpawned = false;
+	public bool bossSpawned = false;
 	public GameObject bossSpawn;
 
 	private int waveCount = 0;
@@ -24,6 +24,9 @@ public class LevelAController : MonoBehaviour
 	private GameObject bossWarning;
 	private GameObject bossHealthBar;
 	private GameObject varHold;
+
+	private GameObject levelMusic;
+	public GameObject bossMusic;
 
 	private float bossHealthGrow;
 
@@ -47,6 +50,11 @@ public class LevelAController : MonoBehaviour
 		Destroy(varHold);
 
 		bossHealthGrow = 0.0f;
+
+		levelMusic = GameObject.FindWithTag("Level Music");
+		levelMusic.GetComponent<MusicLoop>().enabled = false;
+		bossMusic = GameObject.FindWithTag("Boss Music");
+		bossMusic.SetActive(false);
 	}
 	
 	// Update is called once per frame
@@ -102,6 +110,8 @@ public class LevelAController : MonoBehaviour
 
 		if (count == 2)
 		{
+			levelMusic.SetActive(true);
+			levelMusic.GetComponent<MusicLoop>().enabled = true;
 			enemies[8].GetComponent<EnemyMoveB>().rotate = -40.0f;
 			Instantiate(enemies[8], new Vector3(-25.0f, 5.0f, 50.0f), transform.rotation, enemySpawn.transform);
 			enemies[8].GetComponent<EnemyMoveB>().rotate = 40.0f;
@@ -223,6 +233,7 @@ public class LevelAController : MonoBehaviour
 			bg.transform.position = new Vector3 (0.0f, -50.0f, 5.0f);
 			spawnBoss = true;
 			bossWarning.SetActive(true);
+			levelMusic.GetComponent<MusicLoop>().boss = true;
 
 
 		}

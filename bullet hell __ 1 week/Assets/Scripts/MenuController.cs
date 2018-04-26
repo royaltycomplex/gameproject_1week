@@ -11,6 +11,9 @@ public class MenuController : MonoBehaviour
 	public int cursorLimit;
 	public bool horizontal = false;
 
+	private bool selected = false;
+	private bool advance = false;
+
 //	private GameObject cursor;
 	private GameObject varHold;
 
@@ -44,7 +47,16 @@ public class MenuController : MonoBehaviour
 			print(Mathf.FloorToInt (Input.GetAxis("Horizontal")));
 		}
 
-		if (Input.GetButtonDown("Fire1"))
+		if (Input.GetButtonDown("Fire1") && !selected)
+		{
+			GetComponent<AudioSource>().Play();
+			selected = true;
+		}
+
+
+		if (selected) {if (!GetComponent<AudioSource>().isPlaying) {advance = true;}}
+
+		if (advance)
 		{
 			if (SceneManager.GetActiveScene().name == "frontend")
 			{
@@ -58,8 +70,9 @@ public class MenuController : MonoBehaviour
 				if (cursorPosition == 1) {gc.GetComponent<GameController>().Continue(); gameObject.SetActive(false);}
 				if (cursorPosition == 0) {gc.GetComponent<GameController>().gameOver = true; gameObject.SetActive(false);}
 			}
+			selected = false;
+			advance = false;
 		}
-
 
 	}
 }

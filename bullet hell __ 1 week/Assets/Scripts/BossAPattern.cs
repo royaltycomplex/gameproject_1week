@@ -27,7 +27,7 @@ public class BossAPattern : MonoBehaviour
 	private int waitToSpawn;
 	private int spawnFrame;
 
-	private bool phase2Spawned = false;
+	public bool phase2Spawned = false;
 	private bool moved = false;
 
 	public GameObject enemyBullets;
@@ -88,7 +88,13 @@ public class BossAPattern : MonoBehaviour
 		if (phaseCount == 0 && wait)
 		{
 			if (waitToMove == 0) {bulletSpawn = Instantiate(bulletPatterns[0], transform.position, transform.rotation, gameObject.transform);}
-			if (waitToMove >= waitFrame) {Destroy(bulletSpawn); wait = false;}
+
+			if (!sidePicked) {xSide = Random.Range (0, 2) == 0 ? -9 : 9; sidePicked = true;}
+			if (!movedToSide) {transform.position = Vector3.MoveTowards(transform.position, new Vector3(xSide, 5.0f, 24.0f), (speed / 3) * Time.deltaTime);}
+			if (transform.position == new Vector3(xSide, 5.0f, 24.0f) && !movedToSide) {movedToSide = true;}
+			if (movedToSide) {transform.position = Vector3.MoveTowards(transform.position, new Vector3(-xSide, 5.0f, 24.0f), (speed / 3) * Time.deltaTime);}
+			if (transform.position == new Vector3(-xSide, 5.0f, 24.0f) && movedToSide) {movedToSide = false;}
+			if (waitToMove >= waitFrame) {Destroy(bulletSpawn); wait = false; sidePicked = false; movedToSide = false;}
 			waitToMove++;
 		}
 

@@ -10,6 +10,8 @@ public class Boundary
 
 public class PlayerController : MonoBehaviour {
 
+	public AudioSource playerSound;
+
 	private Rigidbody rb;
 	private float nextFire;
 	private GameObject bulletObject;
@@ -83,7 +85,9 @@ public class PlayerController : MonoBehaviour {
 			foreach (Transform bulletSpawn in bulletSpawns)
 			{
 				Instantiate(bullet, bulletSpawn.position, bulletSpawn.rotation, bulletObject.transform);
+				
 			}
+			if (!playerSound.isPlaying) {playerSound.Play();}
 		}
 		if (focus)
 		{

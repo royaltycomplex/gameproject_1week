@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DestroyByBullet : MonoBehaviour {
 
+	public GameObject explosion;
+
 	private bool lightDark;
 	private bool focus;
 	private int lives;
@@ -12,6 +14,7 @@ public class DestroyByBullet : MonoBehaviour {
 	private GameObject enemySpawn;
 	private GameObject enemyBullets;
 	private GameObject playerBullets;
+	private GameObject boss;
 //	private GameObject player;
 
 //	private GameObject pause;
@@ -49,14 +52,30 @@ public class DestroyByBullet : MonoBehaviour {
 	{
 		if ((other.tag == "Light Bullet" && !lightDark) || (other.tag == "Dark Bullet" && lightDark) || other.tag == "Enemy" || other.tag == "Neutral Bullet" || focus == true)
 		{
+			explosion.transform.localScale = new Vector3 (0.5f, 0.5f, 0.5f);
+			var ps = explosion.GetComponent<ParticleSystem>().main;
+			ps.startSpeed = 10;
+			ps.duration = 0.1f;
+			ps.startColor = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+			explosion.GetComponent<AudioSource>().playOnAwake = true;
+			explosion.GetComponent<AudioSource>().pitch = 0.85f;
+			Instantiate(explosion, transform.position, transform.rotation);
+
 			if (lives > 0)
 			{
 				transform.position = new Vector3(0.0f, 0.0f, 0.0f);
 				GetComponent<PlayerController>().lives--;
 				GetComponent<PlayerController>().respawning = true;
 			}
-			else {levelController.SetActive(false); enemySpawn.SetActive(false); enemyBullets.SetActive(false); playerBullets.SetActive(false); continueMenu.SetActive(true); gameObject.SetActive(false);
-			continueMenu.GetComponent<MenuController>().cursorPosition = continueMenu.GetComponent<MenuController>().cursorLimit;}
+			else 
+			{
+				if (levelController != null) {levelController.SetActive(false);}
+				boss = GameObject.FindWithTag("Boss");
+				if (boss != null) {boss.SetActive(false);}
+				enemySpawn.SetActive(false); enemyBullets.SetActive(false); playerBullets.SetActive(false); continueMenu.SetActive(true); gameObject.SetActive(false);
+				continueMenu.GetComponent<MenuController>().cursorPosition = continueMenu.GetComponent<MenuController>().cursorLimit;
+			}
+
 		}
 	}
 }

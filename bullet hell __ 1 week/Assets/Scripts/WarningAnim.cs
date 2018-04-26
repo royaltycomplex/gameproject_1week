@@ -19,7 +19,7 @@ public class WarningAnim : MonoBehaviour
 	void Start () 
 	{
 		waitToDestroy = 0;
-		destroyFrame = 240;
+		destroyFrame = 280;
 
 		levelController = GameObject.FindWithTag("LevelController");
 	}
@@ -35,13 +35,15 @@ public class WarningAnim : MonoBehaviour
 
 		if (warningFlash)
 		{
-			if (waitToDestroy % 64 == 0) {transform.GetChild(0).GetComponent<Image>().enabled = false;} else if (waitToDestroy % 64 == 32) {transform.GetChild(0).GetComponent<Image>().enabled = true;}
+			if (waitToDestroy % 64 == 0) {transform.GetChild(0).GetComponent<Image>().enabled = false;}
+			else if (waitToDestroy % 64 == 32) {transform.GetChild(0).GetComponent<Image>().enabled = true; GetComponent<AudioSource>().Play();}
 			waitToDestroy++;
 		}
 
 		if (waitToDestroy >= destroyFrame) 
 		{
 			levelController.GetComponent<LevelAController>().bossSpawn.GetComponent<BossAPattern>().enabled = true;
+			levelController.GetComponent<LevelAController>().bossMusic.SetActive(true);
 			Destroy(levelController.gameObject);
 			Destroy(gameObject);
 		}
