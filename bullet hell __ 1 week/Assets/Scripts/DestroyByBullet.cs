@@ -66,6 +66,29 @@ public class DestroyByBullet : MonoBehaviour {
 				transform.position = new Vector3(0.0f, 0.0f, 0.0f);
 				GetComponent<PlayerController>().lives--;
 				GetComponent<PlayerController>().respawning = true;
+
+				GameObject[] gameObjects = GameObject.FindGameObjectsWithTag ("Boss Pattern");
+				GameObject[] lightBullets = GameObject.FindGameObjectsWithTag("Light Bullet");
+				GameObject[] darkBullets = GameObject.FindGameObjectsWithTag("Dark Bullet");
+				GameObject[] neutralBullets = GameObject.FindGameObjectsWithTag("Neutral Bullet");
+
+				for(int i = 0 ; i < gameObjects.Length ; i ++)
+				{
+					Destroy(gameObjects[i]);
+				}
+				for(int i = 0 ; i < lightBullets.Length ; i ++)
+				{
+					Destroy(lightBullets[i]);
+				}
+				for(int i = 0 ; i < darkBullets.Length ; i ++)
+				{
+					Destroy(darkBullets[i]);
+				}
+				for(int i = 0 ; i < neutralBullets.Length ; i ++)
+				{
+					Destroy(neutralBullets[i]);
+				}
+
 			}
 			else 
 			{

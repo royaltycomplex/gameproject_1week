@@ -58,6 +58,18 @@ public class BossHP : MonoBehaviour
 				Destroy(bullet.gameObject);
 				}
 			}
+
+			GameObject[] gameObjects = GameObject.FindGameObjectsWithTag ("Pattern");
+			GameObject[] bossPatterns = GameObject.FindGameObjectsWithTag ("Boss Pattern");
+			for(int i = 0 ; i < gameObjects.Length ; i ++)
+			{
+				Destroy(gameObjects[i]);
+			}
+			for(int i = 0 ; i < bossPatterns.Length ; i ++)
+			{
+				Destroy(bossPatterns[i]);
+			}
+
 			gc.AddScore (score[phaseCount]);
 			if (phaseCount >= maxPhases - 1)
 			{
@@ -72,7 +84,18 @@ public class BossHP : MonoBehaviour
 			Instantiate(explosion, transform.position, transform.rotation);
 			Destroy(gameObject);
 			} 
-			else {phaseCount++; maxHP = hp[phaseCount];}
+			else 
+			{
+				explosion.transform.localScale = new Vector3 (0.75f, 0.75f, 0.75f);
+				var ps = explosion.GetComponent<ParticleSystem>().main;
+				ps.startSpeed = 8;
+				ps.duration = 0.3f;
+				ps.startColor = new Color(56.0f/255.0f, 156.0f/255.0f, 1.0f, 1.0f);
+				explosion.GetComponent<AudioSource>().playOnAwake = true;
+				explosion.GetComponent<AudioSource>().pitch = 0.35f;
+				Instantiate(explosion, transform.position, transform.rotation);
+				phaseCount++; maxHP = hp[phaseCount];
+			}
 		}
 	}
 

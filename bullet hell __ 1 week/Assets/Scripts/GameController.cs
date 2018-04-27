@@ -144,6 +144,7 @@ public class GameController : MonoBehaviour {
 		if (levelController != null) {levelController.SetActive(true);}
 		enemySpawn.SetActive(true); enemyBullets.SetActive(true); playerBullets.SetActive(true); continueMenu.SetActive(false);
 		GameObject[] gameObjects = GameObject.FindGameObjectsWithTag ("Pattern");
+		GameObject[] bossPatterns = GameObject.FindGameObjectsWithTag ("Boss Pattern");
 		GameObject[] lightBullets = GameObject.FindGameObjectsWithTag("Light Bullet");
 		GameObject[] darkBullets = GameObject.FindGameObjectsWithTag("Dark Bullet");
 		GameObject[] neutralBullets = GameObject.FindGameObjectsWithTag("Neutral Bullet");
@@ -151,6 +152,10 @@ public class GameController : MonoBehaviour {
 		for(int i = 0 ; i < gameObjects.Length ; i ++)
 		{
 			Destroy(gameObjects[i]);
+		}
+		for(int i = 0 ; i < bossPatterns.Length ; i ++)
+		{
+			Destroy(bossPatterns[i]);
 		}
 		for(int i = 0 ; i < lightBullets.Length ; i ++)
 		{

@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 114083139639826278}
   m_Layer: 0
   m_Name: BossAPatternB
-  m_TagString: Pattern
+  m_TagString: Boss Pattern
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
